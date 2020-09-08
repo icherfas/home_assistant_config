@@ -1,0 +1,8 @@
+title: Switcher control
+path: switcher_control
+panel: false
+cards:
+- entities:
+  - entity: media_player.living_room_tv_2
+  - entity: script.lg_mute_button
+  type: entities

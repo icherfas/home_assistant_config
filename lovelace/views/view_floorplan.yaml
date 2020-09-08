@@ -1,0 +1,280 @@
+panel: true
+path: 'floor_plan'
+title: Floor Plan
+
+cards:
+- elements:
+##############################################################
+#                    Hallway                                 #
+##############################################################
+    #Boiler
+    - entity: switch.switcher_touch_8c0a
+      style:
+        left: 50%
+        top: 55%
+      tap_action:
+        action: toggle
+      type: state-icon
+  # Light
+    - entity: switch.shelly_shsw_25_68c63af92c85_1_2
+      style:
+        left: 50%
+        top: 45%
+      tap_action:
+        action: toggle
+      type: state-icon
+  # AC
+    - entity: climate.living_room_ac
+      style:
+        left: 63%
+        top: 57%
+      type: state-label
+      icon: 'mdi:air-conditioner'
+##############################################################
+#                    Living Room                             #
+##############################################################
+  # Left Light
+    - entity: switch.shelly_shsw_25_8caab505b873_2_2
+      style:
+        left: 72%
+        top: 85%
+      tap_action:
+        action: toggle
+      type: state-icon
+  #  Right Light
+    - entity: switch.shelly_shsw_25_8caab505b873_1_2
+      style:
+        left: 78%
+        top: 85%
+      tap_action:
+        action: toggle
+      type: state-icon
+  # Cover
+    - type: conditional
+      conditions:
+        - entity: cover.shelly_shsw_25_f34b36_2
+          state: open
+      elements:
+        - entity: cover.shelly_shsw_25_f34b36_2
+          attribute: current_position
+          style:
+            left: 83%
+            top: 81%
+          type: state-label
+    - type: conditional
+      conditions:
+        - entity: cover.shelly_shsw_25_f34b36_2
+          state_not: open
+      elements:
+        - entity: cover.shelly_shsw_25_f34b36_2
+          style:
+            left: 83%
+            top: 81%
+          type: state-label
+  # Vacuum Robot
+    - entity: vacuum.vacuum
+      type: state-label
+      style:
+        top: 83%
+        left: 45%
+    # room cleaning selection
+    - entity: group.vacuum
+      type: state-icon
+      icon: 'mdi:robot-vacuum'
+      style:
+        top: 87%
+        left: 45%
+  # Denon Receiver 
+    - entity: media_player.denon_2
+      icon: 'mdi:music'
+      style:
+        left: 72%
+        top: 90%
+      title: Denon
+      type: state-icon
+      tap_action: 
+        action: navigate
+        navigation_path: '/lovelace/denon_control'
+
+  # LG TV:
+    - entity: media_player.living_room_tv_2
+      icon: 'mdi:television-box'
+      tap_action: 
+        action: navigate
+        navigation_path: '/lovelace/tv_control'
+      style:
+        left: 72%
+        top: 96%
+      type: state-icon
+
+##############################################################
+#                    Working Room                            #
+##############################################################
+    # cover
+    - type: conditional
+      conditions:
+        - entity: cover.shelly_shsw_25_68c63af9229c_2
+          state: open
+      elements:
+        - entity: cover.shelly_shsw_25_68c63af9229c_2
+          attribute: current_position
+          style:
+            left: 70%
+            top: 32%
+          type: state-label
+    - type: conditional
+      conditions:
+        - entity: cover.shelly_shsw_25_68c63af9229c_2
+          state_not: open
+      elements:
+        - entity: cover.shelly_shsw_25_68c63af9229c_2
+          style:
+            left: 70%
+            top: 32%
+          type: state-label
+    
+##############################################################
+#                    Kitchen                                 #
+##############################################################
+    # cover
+    - type: conditional
+      conditions:
+        - entity: cover.shelly_shsw_25_f40933_2
+          state: open
+      elements:
+        - entity: cover.shelly_shsw_25_f40933_2
+          attribute: current_position
+          style:
+            left: 90%
+            top: 59%
+          type: state-label
+    - type: conditional
+      conditions:
+        - entity: cover.shelly_shsw_25_f40933_2
+          state_not: open
+      elements:
+        - entity: cover.shelly_shsw_25_f40933_2
+          style:
+            left: 90%
+            top: 59%
+          type: state-label
+      
+##############################################################
+#                    Dining Room                             #
+##############################################################
+    - entity: switch.shelly_shsw_25_68c63af92c85_2_2
+      style:
+        left: 52%
+        top: 67%
+      tap_action:
+        action: toggle
+      type: state-icon
+    - entity: switch.shelly_shsw_1_bcddc277c0e5_2
+      style:
+        left: 54%
+        top: 70%
+      tap_action:
+        action: toggle
+      type: state-icon  
+
+##############################################################
+#                    Parents Room                            #
+##############################################################
+    # Big Cover
+    - type: conditional
+      conditions:
+        - entity: cover.shelly_shsw_25_8caab50582af_2
+          state: open
+      elements:
+        - entity: cover.shelly_shsw_25_8caab50582af_2
+          attribute: current_position
+          style:
+            left: 35%
+            top: 8%
+          type: state-label
+    - type: conditional
+      conditions:
+        - entity: cover.shelly_shsw_25_8caab50582af_2
+          state_not: open
+      elements:
+        - entity: cover.shelly_shsw_25_8caab50582af_2
+          style:
+            left: 35%
+            top: 8%
+          type: state-label
+  # Small Cover
+    - type: conditional
+      conditions:
+        - entity: cover.shelly_shsw_25_98f4abf2c6d3_2
+          state: open
+      elements:
+        - entity: cover.shelly_shsw_25_98f4abf2c6d3_2
+          attribute: current_position
+          style:
+            left: 28%
+            top: 5%
+          type: state-label
+    - type: conditional
+      conditions:
+        - entity: cover.shelly_shsw_25_98f4abf2c6d3_2
+          state_not: open
+      elements:
+        - entity: cover.shelly_shsw_25_98f4abf2c6d3_2
+          style:
+            left: 28%
+            top: 5%
+          type: state-label
+        
+##############################################################
+#                    Kids Room                               #
+##############################################################
+    - type: conditional
+      conditions:
+        - entity: cover.shelly_shsw_25_98f4abf2ded9_2
+          state: open
+      elements:
+        - entity: cover.shelly_shsw_25_98f4abf2ded9_2
+          attribute: current_position
+          style:
+            left: 58%
+            top: 20%
+          type: state-label
+    - type: conditional
+      conditions:
+        - entity: cover.shelly_shsw_25_98f4abf2ded9_2
+          state_not: open
+      elements:
+        - entity: cover.shelly_shsw_25_98f4abf2ded9_2
+          style:
+            left: 58%
+            top: 20%
+          type: state-label
+##############################################################
+#                    General Entities                        #
+##############################################################
+    # Outside Temp
+    - entity: sensor.temprature
+      style:
+        left: 15%
+        top: 80%
+      type: state-badge
+
+    # all lights off button
+    - type: service-button
+      title: "Good bye house"
+      service: script.leaving_the_house
+      style:
+        top: 9%
+        left: 80%
+    - type: service-button
+      title: "hello house"
+      service: script.hello_house
+      style: 
+        top: 15%
+        left: 80% 
+##############################################################
+#                    Image Entity                            #
+##############################################################        
+  image: 'https://cherfas.duckdns.org:8123/local/3dfloor_plan_cropped.jpeg'
+  filter: brightness(50%)
+  type: picture-elements

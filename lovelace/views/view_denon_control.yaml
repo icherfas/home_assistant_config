@@ -1,0 +1,19 @@
+title: Denon Control
+path: denon_control
+panel: true
+cards:
+  - type: vertical-stack
+    cards:
+      - type: entity
+        entity: media_player.denon_2
+      - type: entity
+        entity: media_player.denon
+        attribute: Source
+        icon: 'mdi:radio'
+        name: Tune-in
+      - entities:
+        - input_select.denon_tune_in_select
+        - script.denon_tune_in_select
+        show_header_toggle: false
+        title: Denon Tune in
+        type: entities

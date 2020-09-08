@@ -1,0 +1,14 @@
+living_room_ac_off:
+  alias: 'turn off living room AC'
+  sequence:
+    - service: climate.turn_off 
+      data:
+        entity_id: climate.living_room_ac
+        
+living_room_ac_on:
+  alias: 'turn on living room AC'
+  sequence:
+    - service: climate.set_hvac_mode
+      data:
+        entity_id: climate.living_room_ac
+        hvac_mode: auto

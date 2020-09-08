@@ -1,0 +1,102 @@
+##############################################################
+#                    rooms data                              #
+##############################################################
+vacuum_common_areas:
+  alias: Vacuum Common Areas
+  sequence:
+  - data:
+      command: app_segment_clean
+      entity_id: vaccum.vacuum
+      params: [17, 20, 21]
+    entity_id: vacuum.vacuum
+    service: vacuum.send_command
+
+vacuum_work_room:
+  alias: Vacuum Work Room
+  sequence:
+  - data:
+      command: app_segment_clean
+      entity_id: vaccum.vacuum
+      params: [1]
+    entity_id: vacuum.vacuum
+    service: vacuum.send_command
+
+vacuum_play_room:
+  alias: Vacuum Play Room
+  sequence:
+  - data:
+      command: app_segment_clean
+      entity_id: vaccum.vacuum
+      params: [2]
+    entity_id: vacuum.vacuum
+    service: vacuum.send_command
+
+vacuum_kids_room:
+  alias: Vacuum Kids Room
+  sequence:
+  - data:
+      command: app_segment_clean
+      entity_id: vaccum.vacuum
+      params: [3]
+    entity_id: vacuum.vacuum
+    service: vacuum.send_command
+
+vacuum_parents_room:
+  alias: Vacuum Parents Room
+  sequence:
+  - data:
+      command: app_segment_clean
+      entity_id: vaccum.vacuum
+      params: [4]
+    entity_id: vacuum.vacuum
+    service: vacuum.send_command
+
+vacuum_big_bathroom:
+  alias: Vacuum Big Bathroom
+  sequence:
+  - data:
+      command: app_segment_clean
+      entity_id: vaccum.vacuum
+      params: [16]
+    entity_id: vacuum.vacuum
+    service: vacuum.send_command
+
+vacuum_dining_room_and_entry:
+  alias: Vacuum Dining Room and Entry
+  sequence:
+  - data:
+      command: app_segment_clean
+      entity_id: vaccum.vacuum
+      params: [17]
+    entity_id: vacuum.vacuum
+    service: vacuum.send_command
+
+vacuum_hallway:
+  alias: Vacuum Hallway
+  sequence:
+  - data:
+      command: app_segment_clean
+      entity_id: vaccum.vacuum
+      params: [18]
+    entity_id: vacuum.vacuum
+    service: vacuum.send_command
+
+vacuum_kitchen:
+  alias: Vacuum Kitchen
+  sequence:
+  - data:
+      command: app_segment_clean
+      entity_id: vaccum.vacuum
+      params: [20]
+    entity_id: vacuum.vacuum
+    service: vacuum.send_command
+
+vacuum_living_room:
+  alias: Vacuum Living Room
+  sequence:
+  - data:
+      command: app_segment_clean
+      entity_id: vaccum.vacuum
+      params: [21]
+    entity_id: vacuum.vacuum
+    service: vacuum.send_command

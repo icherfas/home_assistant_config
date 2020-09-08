@@ -1,0 +1,42 @@
+vacuum:
+  name: Vaccum a room
+  entities:
+    - input_select.vacuum_room_select
+    - script.vacuum_room
+
+Denon:
+  name: Select a Tunein source
+  entities:
+     
+garmin:
+  name: garmin
+  entities:
+    - switch.switcher_touch_8c0a
+    - script.turn_off_lights
+    - switch.shelly_shsw_25_8caab505b873_1_2
+    - switch.shelly_shsw_25_8caab505b873_2_2
+  
+all_covers:
+  name: all shelly covers
+  entities:
+    # work room
+    - cover.shelly_shsw_25_68c63af9229c_2
+    # parents room. big cover
+    - cover.shelly_shsw_25_8caab50582af_2
+    # parents room. small cover
+    - cover.shelly_shsw_25_98f4abf2c6d3_2
+    # kids room
+    - cover.shelly_shsw_25_98f4abf2ded9_2
+    # balcony
+    - cover.shelly_shsw_25_f34b36_2
+    # kitchen
+    - cover.shelly_shsw_25_f40933_2
+
+all_lights:
+  name: all shelly lights
+  entities:
+    - switch.shelly_shsw_25_8caab505b873_1_2  # living room right
+    - switch.shelly_shsw_25_8caab505b873_2_2  # living room left
+    - switch.shelly_shsw_1_bcddc277c0e5_2      # big dining
+    - switch.shelly_shsw_25_68c63af92c85_1_2   # small dining
+    - switch.shelly_shsw_25_68c63af92c85_2_2   # hallway

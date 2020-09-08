@@ -1,0 +1,20 @@
+##############################################################
+#             turn off all lights script                     # 
+##############################################################
+
+turn_off_lights:
+  alias: Turn lights off
+  sequence:
+    - service: switch.turn_off
+      data:
+        entity_id: group.all_lights
+
+turn_on_living_room_lights:
+  alias: Turn on living room lights
+  sequence:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.shelly_shsw_25_8caab505b873_2_2
+    - service: switch.turn_on
+      data:
+        entity_id: switch.shelly_shsw_25_8caab505b873_1_2

@@ -1,0 +1,41 @@
+- id: 'close_cover_at_sunset'
+  alias: close  cover at sunset
+  description: 'this automation will close the room cover at sunset'
+  trigger:
+    platform: state
+    entity_id: sun.sun
+    from: "above_horizon"
+    to: "below_horizon"
+  condition: []
+  action:
+  - service: script.close_work_room_cover_30
+  mode: single
+
+- id: 'open_cover_@_7:30_on_weekdays'
+  alias: open cover @ 7:30 at weekdays
+  description: 'this automation will open the room cover @ 7:30 on a weekday'
+  trigger:
+  - at: '7:30'
+    platform: time
+  condition: 
+  - condition: time
+    weekday:
+      - sun
+      - mon
+      - tue
+      - wed
+      - thu
+  action:
+  - service: script.open_work_room_cover_100
+  mode: single
+
+- id: 'set_cover_to_40%'
+  alias: set cover to 40% 
+  description: 'this automation will set the room cover to 40%'
+  trigger:
+  - at: '11:00'
+    platform: time
+  condition: []
+  action:
+  - service: script.set_work_room_cover_40
+  mode: single

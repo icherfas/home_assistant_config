@@ -1,0 +1,221 @@
+##############################################################
+#             open all covers at home script                 # 
+##############################################################
+
+open_all_covers:
+  alias: 'open all covers'
+  sequence:
+    - service: script.open_work_room_cover_100
+    - service: script.open_parents_room_big_cover_100
+    - service: script.open_parents_room_small_cover_100
+    - service: script.open_kids_room_cover_100
+    - service: script.open_living_room_cover_100
+    - service: script.open_kitchen_cover_100
+
+##############################################################
+#             close all covers at home script                # 
+##############################################################
+
+close_all_covers:
+  alias: 'close all covers'
+  sequence:
+    - service: script.close_work_room_cover_30
+    - service: script.close_parents_room_big_cover_30
+    - service: script.close_parents_room_small_cover_30
+    - service: script.close_kids_room_cover_30
+    - service: script.close_living_room_cover_50
+    - service: script.close_kitchen_cover_30
+
+##############################################################
+#             hello house script (for day light)             # 
+##############################################################
+
+open_kitchen_and_living_room_covers:
+  alias: 'open kitchen and living room covers'
+  sequence:
+    - service: script.open_kitchen_cover_100
+    - service: script.open_living_room_cover_100
+
+##############################################################
+#             work room cover                                # 
+##############################################################
+
+close_work_room_cover_30:
+  alias: 'close work room cover to 30%'
+  sequence:
+    - condition: numeric_state
+      entity_id: cover.shelly_shsw_25_68c63af9229c_2
+      above: 30
+      value_template: '{{ state.attributes.current_position }}'
+    - data:
+        entity_id: cover.shelly_shsw_25_68c63af9229c_2
+        position: '30'
+      service: cover.set_cover_position
+
+open_work_room_cover_100:
+  alias: 'open work room cover to 100%'
+  sequence:
+    - condition: numeric_state
+      entity_id: cover.shelly_shsw_25_68c63af9229c_2
+      below: 100
+      value_template: '{{ state.attributes.current_position }}'
+    - data:
+        entity_id: cover.shelly_shsw_25_68c63af9229c_2
+        position: '100'
+      service: cover.set_cover_position
+
+set_work_room_cover_40:
+  alias: 'set work room cover to 40% to avoid sun'
+  sequence:
+    - condition: numeric_state
+      entity_id: cover.shelly_shsw_25_68c63af9229c_2
+      above: 40
+      value_template: '{{ state.attributes.current_position }}'
+    - data:
+        entity_id: cover.shelly_shsw_25_68c63af9229c_2
+        position: '40'
+      service: cover.set_cover_position
+
+
+##############################################################
+#             parents room big cover                         # 
+##############################################################
+
+close_parents_room_big_cover_30:
+  alias: 'close parents room big cover to 30%'
+  sequence:
+    - condition: numeric_state
+      entity_id: cover.shelly_shsw_25_8caab50582af_2
+      above: 30
+      value_template: '{{ state.attributes.current_position }}'
+    - data:
+        entity_id: cover.shelly_shsw_25_8caab50582af_2
+        position: '30'
+      service: cover.set_cover_position
+
+open_parents_room_big_cover_100:
+  alias: 'open parents room big cover to 100%'
+  sequence:
+    - condition: numeric_state
+      entity_id: cover.shelly_shsw_25_8caab50582af_2
+      below: 100
+      value_template: '{{ state.attributes.current_position }}'
+    - data:
+        entity_id: cover.shelly_shsw_25_8caab50582af_2
+        position: '100'
+      service: cover.set_cover_position
+
+
+##############################################################
+#             parents room small cover                       # 
+##############################################################
+
+close_parents_room_small_cover_30:
+  alias: 'close parents room small cover to 30%'
+  sequence:
+    - condition: numeric_state
+      entity_id: cover.shelly_shsw_25_98f4abf2c6d3_2
+      above: 30
+      value_template: '{{ state.attributes.current_position }}'
+    - data:
+        entity_id: cover.shelly_shsw_25_98f4abf2c6d3_2
+        position: '30'
+      service: cover.set_cover_position
+
+open_parents_room_small_cover_100:
+  alias: 'open parents room small cover to 100%'
+  sequence:
+    - condition: numeric_state
+      entity_id: cover.shelly_shsw_25_98f4abf2c6d3_2
+      below: 100
+      value_template: '{{ state.attributes.current_position }}'
+    - data:
+        entity_id: cover.shelly_shsw_25_98f4abf2c6d3_2
+        position: '100'
+      service: cover.set_cover_position
+
+##############################################################
+#             kids room cover                                # 
+##############################################################
+
+close_kids_room_cover_30:
+  alias: 'close kids room cover to 30%'
+  sequence:
+    - condition: numeric_state
+      entity_id: cover.shelly_shsw_25_98f4abf2ded9_2
+      above: 30
+      value_template: '{{ state.attributes.current_position }}'
+    - data:
+        entity_id: cover.shelly_shsw_25_98f4abf2ded9_2
+        position: '30'
+      service: cover.set_cover_position
+
+open_kids_room_cover_100:
+  alias: 'open kids room  cover to 100%'
+  sequence:
+    - condition: numeric_state
+      entity_id: cover.shelly_shsw_25_98f4abf2ded9_2
+      below: 100
+      value_template: '{{ state.attributes.current_position }}'
+    - data:
+        entity_id: cover.shelly_shsw_25_98f4abf2ded9_2
+        position: '100'
+      service: cover.set_cover_position
+
+##############################################################
+#             Living room cover                              # 
+##############################################################
+
+close_living_room_cover_50:
+  alias: 'close living room cover to 50%'
+  sequence:
+    - condition: numeric_state
+      entity_id: cover.shelly_shsw_25_f34b36_2
+      above: 50
+      value_template: '{{ state.attributes.current_position }}'
+    - data:
+        entity_id: cover.shelly_shsw_25_f34b36_2
+        position: '50'
+      service: cover.set_cover_position
+
+open_living_room_cover_100:
+  alias: 'open living room  cover to 100%'
+  sequence:
+    - condition: numeric_state
+      entity_id: cover.shelly_shsw_25_f34b36_2
+      below: 100
+      value_template: '{{ state.attributes.current_position }}'
+    - data:
+        entity_id: cover.shelly_shsw_25_f34b36_2
+        position: '100'
+      service: cover.set_cover_position
+
+##############################################################
+#             Kitchen cover                                  # 
+##############################################################
+
+close_kitchen_cover_30:
+  alias: 'close kitchen cover to 30%'
+  sequence:
+    - condition: numeric_state
+      entity_id: cover.shelly_shsw_25_f40933_2
+      above: 30
+      value_template: '{{ state.attributes.current_position }}'
+    - data:
+        entity_id: cover.shelly_shsw_25_f40933_2
+        position: '30'
+      service: cover.set_cover_position
+
+open_kitchen_cover_100:
+  alias: 'open kitchen cover to 100%'
+  sequence:
+    - condition: numeric_state
+      entity_id: cover.shelly_shsw_25_f40933_2
+      below: 100
+      value_template: '{{ state.attributes.current_position }}'
+    - data:
+        entity_id: cover.shelly_shsw_25_f40933_2
+        position: '100'
+      service: cover.set_cover_position
+
+

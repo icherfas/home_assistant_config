@@ -1,0 +1,30 @@
+##############################################################
+#                    vacuum room script                      #
+##############################################################
+vacuum_room:
+    alias: "Start cleaning"
+    sequence:
+      - service: script.turn_on
+        data_template:
+          entity_id: >
+            {% if is_state("input_select.vacuum_room_select", "Kitchen") %}
+              script.vacuum_kitchen
+            {% elif is_state("input_select.vacuum_room_select", "Common areas") %}
+              script.vacuum_common_areas
+            {% elif is_state("input_select.vacuum_room_select", "Living room") %}
+              script.vacuum_living_room
+            {% elif is_state("input_select.vacuum_room_select", "Dining room and entry") %}
+              script.vacuum_dining_room_and_entry
+            {% elif is_state("input_select.vacuum_room_select", "Hallway") %}
+              script.vacuum_hallway
+            {% elif is_state("input_select.vacuum_room_select", "Parents room") %}
+              script.vacuum_parents_room
+            {% elif is_state("input_select.vacuum_room_select", "Work room") %}
+              script.vacuum_work_room
+            {% elif is_state("input_select.vacuum_room_select", "Kids room") %}
+              script.vacuum_kids_room
+            {% elif is_state("input_select.vacuum_room_select", "Play room") %}
+              script.vacuum_play_room
+            {% elif is_state("input_select.vacuum_room_select", "Big bathroom") %}
+              script.vacuum_big_bathroom
+            {% endif %}

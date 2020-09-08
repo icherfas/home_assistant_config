@@ -1,0 +1,72 @@
+##############################################################
+#                   LG buttons mapping                       #
+##############################################################
+lg_home_button:
+  sequence:
+    - service: webostv.button
+      data:
+        entity_id: media_player.living_room_tv_2
+        button: "HOME"
+
+lg_mute_button:
+  sequence:
+    - service: webostv.button
+      data:
+        entity_id: media_player.living_room_tv_2
+        button: "MUTE"
+
+lg_left_button:
+  sequence:
+    - service: webostv.button
+      data:
+        entity_id: media_player.living_room_tv_2
+        button: "LEFT"
+
+lg_up_button:
+  sequence:
+    - service: webostv.button
+      data:
+        entity_id: media_player.living_room_tv_2
+        button: "UP"
+
+lg_right_button:
+  sequence:
+    - service: webostv.button
+      data:
+        entity_id: media_player.living_room_tv_2
+        button: "RIGHT"
+
+lg_down_button:
+  sequence:
+    - service: webostv.button
+      data:
+        entity_id: media_player.living_room_tv_2
+        button: "DOWN"
+
+lg_enter_button:
+  sequence:
+    - service: webostv.button
+      data:
+        entity_id: media_player.living_room_tv_2
+        button: "ENTER"
+
+lg_exit_button:
+  sequence:
+    - service: webostv.button
+      data:
+        entity_id: media_player.living_room_tv_2
+        button: "EXIT"
+
+lg_volumeup_button:
+  sequence:
+    - service: webostv.button
+      data:
+        entity_id: media_player.living_room_tv_2
+        button: "VOLUMEUP"
+
+lg_volumedown_button:
+  sequence:
+    - service: webostv.button
+      data:
+        entity_id: media_player.living_room_tv_2
+        button: "VOLUMEDOWN"

@@ -1,0 +1,180 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+lovelace:
+  mode: yaml
+  resources:
+    - url: /hacsfiles/custom-header/custom-header.js
+      type: module
+
+# include time and date sensor:
+sensor:
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+      - 'date_time'
+      - 'date_time_utc'
+      - 'date_time_iso'
+      - 'time_date'
+      - 'time_utc'
+      - 'beat'
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include_dir_merge_named /config/entities/groups/
+automation: !include_dir_merge_list automation/
+script:  !include_dir_merge_named /config/entities/scripts/ # !include scripts.yaml
+scene: !include scenes.yaml
+logger:
+  default: error
+  logs:
+    custom_components.ekon: debug
+
+# Recorder
+recorder:
+  auto_purge: true
+  purge_keep_days: 2
+  #db_url: mysql+pymysql://10.0.0.29/homeassistant?charset=utf8
+
+wake_on_lan: # enables `wake_on_lan` domain
+#########################################################
+# HACS
+#########################################################
+hacs:
+  token: acfc05f35a1d7999bf2b3f512a894681b7b92952 
+  appdaemon: true
+  python_script: true
+  theme: true
+#########################################################
+# Tadiran control
+######################################################### 
+climate: 
+- platform: ekon
+  # This currently unused:
+  name: Main account
+  # Specify the name and password for your account
+  username: !secret ekon_user_name
+  password: !secret ekon_password
+  # This specifies the server that the component would work with, I have only tried it with EKON server (Airconet APP)
+  # Optional, defults to Airconet server
+  # Use this if you are using "Airconet" app - EKON main server
+  base_url: https://www.airconet.xyz/
+  name_mapping:
+  - id : !secret ekon_id_mapping
+    name: Living_Room_AC
+
+shelly:
+
+##########################################################
+# Switcher
+##########################################################
+switcher_kis:
+  phone_id: !secret switcher_phone_id
+  device_id: !secret switcher_device_id
+  device_password: !secret switcher_device_password
+##########################################################
+# Spotify
+# ########################################################
+spotify:
+  client_id: !secret spotify_client_id  
+  client_secret: !secret spotify_client_secret
+#########################################################
+# template sensor for shutter position
+#########################################################
+sensor:
+        - platform: template
+          sensors:
+            temprature:
+               friendly_name: "Outside Temp"
+               unit_of_measurement: "c"
+               value_template: '{{ states.weather.home.attributes.temperature }}'
+##########################################################
+# Roborock vacuum
+##########################################################
+# general definition
+vacuum:
+          - platform: xiaomi_miio
+            host: !secret vacuum_host
+            token: !secret vacuum_token
+            name: vacuum
+
+
+##########################################################
+# Denon - Heos
+##########################################################
+heos:
+  host: !secret heos_host
+
+
+##########################################################
+# swtich for WOL LG TV
+##########################################################
+switch:
+  platform: wake_on_lan
+  name: lg
+  mac: !secret lg_mac_address
+##########################################################
+# LG smart TV
+##########################################################
+webostv:
+  host: !secret lg_host
+  name: Living Room TV
+  #other settings
+  turn_on_action:
+    service: switch.turn_on
+    entity_id: switch.lg
+  customize:
+    sources:
+      - Mi Box
+      - youtube
+      - netflix
+      - PS4
+      - makoTV
+
+http:
+  base_url: cherfas.duckdns.org
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
+
+##########################################################
+# input selection
+##########################################################
+input_select:
+  vacuum_room_select:
+    name: Choose a room to clean
+    options:
+      - Common areas      
+      - Kitchen
+      - Living room
+      - Dining room and entry
+      - Hallway
+      - Parents room
+      - Work room
+      - Kids room
+      - Play room
+      - Big bathroom
+  denon_input_delect:
+    name: Choose an input
+    options:
+      - TV Audio
+      - HEOS
+      - Bluetooth
+  denon_sound_mode:
+    name: Select a sound mode
+    options:
+      - Auto
+      - DOLBY DIGITAL
+      - DTS SURROUND
+      - Multi Channel Stereo
+      - Stereo
+  denon_tune_in_select:
+    name: select tune-in input to play
+    options:
+      - glgltz
+      - eco 99
+      - glz

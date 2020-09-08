@@ -1,0 +1,24 @@
+###########################################################################
+#                          custom_header                                  #
+###########################################################################
+custom_header:
+  header_text: Home
+  exceptions:
+    - conditions:
+        user: Tablet, Shirly Cherfas
+      config:
+        compact_mode: true
+        kiosk_mode: true
+
+views:
+  # floorplan
+  - !include /config/lovelace/views/view_floorplan.yaml
+
+  # LG TV control
+  - !include /config/lovelace/views/view_tv_control.yaml
+
+  # Denon control
+  - !include /config/lovelace/views/view_denon_control.yaml
+
+  # switcher control
+  - !include /config/lovelace/views/view_switcher_control.yaml

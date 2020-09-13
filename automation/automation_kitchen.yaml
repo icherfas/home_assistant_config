@@ -17,5 +17,5 @@
     platform: time
   condition: []
   action:
-  - service: script.close_kitchen_cover_30
+  - service: script.close_kitchen_cover_50
   mode: single

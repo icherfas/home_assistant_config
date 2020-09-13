@@ -1,10 +1,21 @@
-- id: '1599584914433'
-  alias: close work cover @ 20:10
-  description: ''
+- id: 'open_living_room_cover'
+  alias: open living room cover
+  description: 'open the living room cover to 100% in the morning'
   trigger:
-  - at: '21:43:00'
+  - at: '7:00'
     platform: time
   condition: []
   action:
-  - service: script.close_work_room_cover_30
+  - service: script.open_living_room_cover_100
+  mode: single
+
+- id: 'close_living_room_cover'
+  alias: close living room cover for the night
+  description: 'close the living room cover to 50%'
+  trigger:
+  - at: '14:00'
+    platform: time
+  condition: []
+  action:
+  - service: script.close_living_room_cover_50
   mode: single

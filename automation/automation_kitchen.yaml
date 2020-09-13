@@ -1,0 +1,21 @@
+- id: 'open_kitchen_cover'
+  alias: open kitchen cover
+  description: 'open the kitchen cover to 100% in the morning'
+  trigger:
+  - at: '7:00'
+    platform: time
+  condition: []
+  action:
+  - service: script.open_kitchen_cover_100
+  mode: single
+
+- id: 'close_kitchen_cover'
+  alias: close kitchen cover for the night
+  description: 'close the kitchen cover to 50%'
+  trigger:
+  - at: '22:30'
+    platform: time
+  condition: []
+  action:
+  - service: script.close_kitchen_cover_30
+  mode: single

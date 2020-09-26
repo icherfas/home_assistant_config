@@ -1,0 +1,155 @@
+##############################################################
+#                    denon tunein seleciton                  #
+##############################################################
+select_tunein:
+    alias: "Select TuneIn input To Play"
+    sequence:
+      - service: script.turn_on
+        data_template:
+          entity_id: >
+            {% if is_state("input_select.denon_tune_in_select", "glgltz") %}
+              script.denon_glgltz
+            {% elif is_state("input_select.denon_tune_in_select", "eco 99") %}
+              script.denon_eco99
+            {% elif is_state("input_select.denon_tune_in_select", "glz") %}
+              script.denon_glz
+            {% endif %}
+
+##############################################################
+#                    denon tunein stations                   #
+##############################################################
+denon_glgltz:
+  alias: Play glgltz on Denon
+  sequence:
+    - service: media_player.play_media
+      data_template:
+        entity_id: media_player.denon
+        media_content_type: "favorite"
+        media_content_id: '1'
+
+denon_eco99:
+  alias: Play eco99 on Denon
+  sequence:
+    - service: media_player.play_media
+      data_template:
+        entity_id: media_player.denon
+        media_content_type: "favorite"
+        media_content_id: "2"
+
+denon_glz:
+  alias: Play glz on Denon
+  sequence:
+    - service: media_player.play_media
+      data_template:
+        entity_id: media_player.denon
+        media_content_type: "favorite"
+        media_content_id: '3'
+
+##############################################################
+#                    denon buttons                           #
+##############################################################
+denon_turn_off:
+  alias: "turn off denon"
+  sequence:
+    - service: media_player.turn_off
+      data_template:
+        entity_id: media_player.denon_2
+
+denon_turn_on:
+  alias: "turn on denon"
+  sequence:
+    - service: media_player.turn_on
+      data_template:
+        entity_id: media_player.denon_2
+
+denon_mute:
+  alias: "mute denon"
+  sequence:
+    - service: media_player.volume_mute
+      data_template:
+        entity_id: media_player.denon_2
+        is_volume_muted: True
+        
+denon_unmute:
+  alias: "unmute denon"
+  sequence:
+    - service: media_player.volume_mute
+      data_template:
+        entity_id: media_player.denon_2
+        is_volume_muted: False
+
+denon_volume_up:
+  alias: "volume up denon"
+  sequence:
+    - service: media_player.volume_up
+      data_template:
+        entity_id: media_player.denon_2
+
+denon_volume_down:
+  alias: "volume down denon"
+  sequence:
+    - service: media_player.volume_down
+      data_template:
+        entity_id: media_player.denon_2
+
+##############################################################
+#                    denon inputs                            #
+##############################################################
+denon_tv_input:
+  alias: "TV Audio input on denon"
+  sequence:
+    - service: media_player.select_source
+      data_template:
+        entity_id: media_player.denon_2
+        source: "TV Audio"
+
+denon_heos_input:
+  alias: "HEOS input on denon"
+  sequence:
+    - service: media_player.select_source
+      data_template:
+        entity_id: media_player.denon_2
+        source: "HEOS"
+
+##############################################################
+#                    denon sound modes                       #
+##############################################################
+denon_auto_sound_mode:
+  alias: "auto sound mode on denon"
+  sequence:
+    - service: media_player.select_sound_mode
+      data_template:
+        entity_id: media_player.denon_2
+        sound_mode: "AUTO"
+
+denon_dts_sound_mode:
+  alias: "DTS sound mode on denon"
+  sequence:
+    - service: media_player.select_sound_mode
+      data_template:
+        entity_id: media_player.denon_2
+        sound_mode: "DTS SURROUND"
+          
+denon_dolby_digital_sound_mode:
+  alias: "DOLBY DIGITAL sound mode on denon"
+  sequence:
+    - service: media_player.select_sound_mode
+      data_template:
+        entity_id: media_player.denon_2
+        sound_mode: "DOLBY DIGITAL"
+
+denon_stereo_sound_mode:
+  alias: "Stereo sound mode on denon"
+  sequence:
+    - service: media_player.select_sound_mode
+      data_template:
+        entity_id: media_player.denon_2
+        sound_mode: "STEREO"
+          
+denon_multi_channel_stereo_sound_mode:
+  alias: "Multi Channel Stereo sound mode on denon"
+  sequence:
+    - service: media_player.select_sound_mode
+      data_template:
+        entity_id: media_player.denon_2
+        sound_mode: "MCH STEREO"

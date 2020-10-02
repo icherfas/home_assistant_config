@@ -37,7 +37,7 @@ cards:
     - entity: switch.shelly_shsw_25_8caab505b873_2_2
       style:
         left: 72%
-        top: 85%
+        top: 81%
       tap_action:
         action: toggle
       type: state-icon
@@ -45,7 +45,7 @@ cards:
     - entity: switch.shelly_shsw_25_8caab505b873_1_2
       style:
         left: 78%
-        top: 85%
+        top: 81%
       tap_action:
         action: toggle
       type: state-icon
@@ -58,7 +58,7 @@ cards:
         - entity: cover.shelly_shsw_25_f34b36_2
           attribute: current_position
           style:
-            left: 83%
+            left: 86%
             top: 81%
           type: state-label
     - type: conditional
@@ -68,7 +68,7 @@ cards:
       elements:
         - entity: cover.shelly_shsw_25_f34b36_2
           style:
-            left: 83%
+            left: 86%
             top: 81%
           type: state-label
   # Vacuum Robot
@@ -89,7 +89,7 @@ cards:
       icon: 'mdi:music'
       style:
         left: 72%
-        top: 90%
+        top: 88%
       title: Denon
       type: state-icon
       tap_action: 
@@ -159,8 +159,24 @@ cards:
             top: 59%
           type: state-label
       
+  # Kitchen
+    - entity: switch.shelly_shsw_25_e0980694fa76_2
+      style:
+        left: 75%
+        top: 59%
+      tap_action:
+        action: toggle
+      type: state-icon
+  #  Counter
+    - entity: switch.shelly_shsw_25_e0980694fa76_1
+      style:
+        left: 75%
+        top: 70%
+      tap_action:
+        action: toggle
+      type: state-icon  
 ##############################################################
-#                    Dining Room                             #
+#                    Dining area                             #
 ##############################################################
     - entity: switch.shelly_shsw_25_68c63af92c85_2_2
       style:
@@ -171,8 +187,8 @@ cards:
       type: state-icon
     - entity: switch.shelly_shsw_1_bcddc277c0e5_2
       style:
-        left: 54%
-        top: 70%
+        left: 56%
+        top: 72%
       tap_action:
         action: toggle
       type: state-icon  

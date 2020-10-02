@@ -40,3 +40,5 @@ all_lights:
     - switch.shelly_shsw_1_bcddc277c0e5_2      # big dining
     - switch.shelly_shsw_25_68c63af92c85_1_2   # small dining
     - switch.shelly_shsw_25_68c63af92c85_2_2   # hallway
+    - switch.shelly_shsw_25_e0980694fa76_2    # kitchen
+    - switch.shelly_shsw_25_e0980694fa76_1     # counter

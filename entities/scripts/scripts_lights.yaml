@@ -9,7 +9,7 @@ turn_off_lights:
       data:
         entity_id: group.all_lights
 
-turn_on_living_room_lights:
+turn_on_living_room_lights: 
   alias: Turn on living room lights
   sequence:
     - service: switch.turn_on

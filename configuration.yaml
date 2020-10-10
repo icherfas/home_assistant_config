@@ -5,7 +5,11 @@ default_config:
 lovelace:
   mode: yaml
   resources:
+  # custom header
     - url: /hacsfiles/custom-header/custom-header.js
+      type: module
+  # custom button-card
+    - url: /hacsfiles/button-card/button-card.js
       type: module
 
 # include time and date sensor:
@@ -59,10 +63,9 @@ climate:
   # Specify the name and password for your account
   username: !secret ekon_user_name
   password: !secret ekon_password
-  # This specifies the server that the component would work with, I have only tried it with EKON server (Airconet APP)
-  # Optional, defults to Airconet server
-  # Use this if you are using "Airconet" app - EKON main server
+  
   base_url: https://www.airconet.xyz/
+  ws_url: wss://www.airconet.xyz/ws
   name_mapping:
   - id : !secret ekon_id_mapping
     name: Living_Room_AC

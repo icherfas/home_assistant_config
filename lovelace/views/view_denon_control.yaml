@@ -1,16 +1,161 @@
 title: Denon Control
 path: denon_control
-panel: true
-cards:
+cards: 
   - type: vertical-stack
     cards:
-      - type: media-control
-        entity: media_player.denon
-      - type: entity
-        entity: media_player.denon
-      - entities:
-        - input_select.denon_tune_in_select
-        - script.select_tunein
-        show_header_toggle: false
-        title: Denon Tune in
-        type: entities
+    # 1st line
+    - type: "custom:button-card"
+      color_type: label-card
+      color: rgb(88, 142, 189)
+      name: Denon Control
+    # 2nd line
+    - type: horizontal-stack
+      cards:
+        # toggle power state
+        - type: "custom:button-card"
+          entity: script.denon_turn_off
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: Power
+          icon: mdi:power
+          tap_action:
+            action: call-service
+            service: script.denon_toggle_power
+          show_name: true
+        # toggle mute state
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: Mute
+          show_name: true
+          icon: mdi:volume-off
+          tap_action:
+            action: call-service
+            service: script.denon_toggle_mute
+          # volume up and down
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: Volume Up
+          show_name: true
+          icon: mdi:volume-plus
+          tap_action:
+            action: call-service
+            service: script.denon_volume_up
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: Volume Down
+          show_name: true
+          icon: mdi:volume-minus
+          tap_action:
+            action: call-service
+            service: script.denon_volume_down
+      # 3rd line
+    - type: horizontal-stack
+      cards:
+        # select TV output
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: TV-Audio
+          show_name: true
+          icon: mdi:television
+          tap_action:
+            action: call-service
+            service: script.denon_tv_input
+        # select HEOS
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: HEOS
+          show_name: true
+          icon: mdi:music
+          tap_action:
+            action: call-service
+            service: script.denon_heos_input
+      # 4th line
+    - type: horizontal-stack
+      cards:
+        # play glgltz
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: 'גלגל"צ'
+          show_name: true
+          tap_action:
+            action: call-service
+            service: script.denon_glgltz
+        # play eco99
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: ECO99
+          show_name: true
+          tap_action:
+            action: call-service
+            service: script.denon_eco99    
+        # play glz
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: 'גלי צה"ל'
+          show_name: true
+          tap_action:
+            action: call-service
+            service: script.denon_glz
+      # 5th line
+    - type: horizontal-stack
+      cards:
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: AUTO
+          show_name: true
+          tap_action:
+            action: call-service
+            service: script.denon_auto_sound_mode
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: DTS
+          show_name: true
+          tap_action:
+            action: call-service
+            service: script.denon_dts_sound_mode    
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: Dolby Digital
+          show_name: true
+          tap_action:
+            action: call-service
+            service: script.denon_dolby_digital_sound_mode
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: Stereo
+          show_name: true
+          tap_action:
+            action: call-service
+            service: script.denon_stereo_sound_mode   
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: MCH Stereo
+          show_name: true
+          tap_action:
+            action: call-service
+            service: script.denon_multi_channel_stereo_sound_mode 
+      # 6th line
+    - type: media-control
+      entity: media_player.denon
+    # 7th line
+    - type: "custom:button-card"
+      color_type: label-card
+      icon: mdi:home
+      color: rgb(88, 142, 189)
+      name: Home
+      tap_action:
+        action: navigate
+        navigation_path: /lovelace/0

@@ -48,36 +48,22 @@ denon_glz:
 ##############################################################
 #                    denon buttons                           #
 ##############################################################
-denon_turn_off:
-  alias: "turn off denon"
+
+denon_toggle_power:
+  alias: "toggle power denon"
   sequence:
-    - service: media_player.turn_off
+    - service: media_player.toggle
       data_template:
         entity_id: media_player.denon_2
 
-denon_turn_on:
-  alias: "turn on denon"
-  sequence:
-    - service: media_player.turn_on
-      data_template:
-        entity_id: media_player.denon_2
-
-denon_mute:
-  alias: "mute denon"
+denon_toggle_mute:
+  alias: "toggle mute denon"
   sequence:
     - service: media_player.volume_mute
       data_template:
         entity_id: media_player.denon_2
-        is_volume_muted: True
+        is_volume_muted: "{{ not state_attr('media_player.denon_2', 'is_volume_muted') }}"
         
-denon_unmute:
-  alias: "unmute denon"
-  sequence:
-    - service: media_player.volume_mute
-      data_template:
-        entity_id: media_player.denon_2
-        is_volume_muted: False
-
 denon_volume_up:
   alias: "volume up denon"
   sequence:

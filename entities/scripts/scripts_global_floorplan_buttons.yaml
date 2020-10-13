@@ -3,6 +3,9 @@ leaving_the_house:
   sequence:
     - service: script.turn_off_lights
     - service: script.close_all_covers
+    - service: script.living_room_ac_off
+    - service: script.denon_power_off
+    - service: script.lg_power_off
 
 hello_house:
   alias: "Hello House!"
@@ -16,9 +19,9 @@ hello_house:
             script.turn_on_living_room_lights
           {% endif %}
 
-good_night:
-  alias: 'nighty night!'
-  sequence:
-    - service: script.turn_off_lights
-    - service: script.close_all_covers
-    - service: script.living_room_ac_off
+# good_night:
+#   alias: 'nighty night!'
+#   sequence:
+#     - service: script.turn_off_lights
+#     - service: script.close_all_covers
+#     - service: script.living_room_ac_off

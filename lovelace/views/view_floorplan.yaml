@@ -276,18 +276,48 @@ cards:
       type: state-badge
 
     # all lights off button
-    - type: service-button
-      title: "Good bye house"
-      service: script.leaving_the_house
+    - type: custom:button-card
+      show_name: true
+      name: "Going Out"
+      tap_action:
+        action: call-service
+        service: script.leaving_the_house
+      color_type: label-card
+      color: rgb(66, 134, 244)
       style:
         top: 9%
         left: 80%
-    - type: service-button
-      title: "hello house"
-      service: script.hello_house
+      styles:
+        card:
+          - width: 130px
+    - type: custom:button-card
+      show_name: true
+      name: "Hello"
+      tap_action:
+        action: call-service
+        service: script.hello_house
+      color_type: label-card
+      color: rgb(66, 134, 244)
       style: 
         top: 15%
         left: 80% 
+      styles:
+        card:
+          - width: 130px
+    # - type: custom:button-card
+    #   show_name: true
+    #   name: "Good Night"
+    #   tap_action:
+    #     action: call-service
+    #     service: script.good_night
+    #   color_type: label-card
+    #   color: rgb(66, 134, 244)
+    #   style: 
+    #     top: 21%
+    #     left: 80% 
+    #   styles:
+    #     card:
+    #       - width: 130px
 ##############################################################
 #                    Image Entity                            #
 ##############################################################        

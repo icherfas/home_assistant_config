@@ -13,11 +13,14 @@ cards:
       cards:
         # toggle power state
         - type: "custom:button-card"
-          entity: script.denon_turn_off
+          entity: media_player.denon_2
           color_type: label-card
           color: rgb(66, 134, 244)
           name: Power
           icon: mdi:power
+          state:
+            - value: "off"
+              color: rgb(255,0,0)
           tap_action:
             action: call-service
             service: script.denon_toggle_power
@@ -36,21 +39,21 @@ cards:
         - type: "custom:button-card"
           color_type: label-card
           color: rgb(66, 134, 244)
-          name: Volume Up
-          show_name: true
-          icon: mdi:volume-plus
-          tap_action:
-            action: call-service
-            service: script.denon_volume_up
-        - type: "custom:button-card"
-          color_type: label-card
-          color: rgb(66, 134, 244)
           name: Volume Down
           show_name: true
           icon: mdi:volume-minus
           tap_action:
             action: call-service
             service: script.denon_volume_down
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: Volume Up
+          show_name: true
+          icon: mdi:volume-plus
+          tap_action:
+            action: call-service
+            service: script.denon_volume_up
       # 3rd line
     - type: horizontal-stack
       cards:
@@ -158,4 +161,4 @@ cards:
       name: Home
       tap_action:
         action: navigate
-        navigation_path: /lovelace/0
+        navigation_path: /lovelace/floor_plan

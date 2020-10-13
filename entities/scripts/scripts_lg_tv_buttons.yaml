@@ -1,6 +1,17 @@
 ##############################################################
 #                   LG buttons mapping                       #
 ##############################################################
+
+lg_toggle_power:
+  sequence:
+    - service: media_player.toggle
+      entity_id: media_player.living_room_tv_2
+
+lg_power_off:
+  sequence:
+    - service: media_player.turn_off
+    entity_id: media_player.living_room_tv_2
+
 lg_home_button:
   sequence:
     - service: webostv.button

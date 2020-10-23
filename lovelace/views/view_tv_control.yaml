@@ -1,16 +1,306 @@
 title: TV control
 path: tv_control
-panel: false
-cards:
-- entities:
-  - entity: media_player.living_room_tv_2
-  - entity: script.lg_mute_button
-  type: entities
-- entities:
-  - entity: script.open_all_covers
-    icon: mdi:window-open
-  - entity: script.close_all_covers
-    icon: mdi:window-closed
-  - entity: script.open_work_room_cover_100
-
-  type: entities
+panel: true
+cards: 
+  - type: vertical-stack
+    cards:
+    # 1st line
+    - type: "custom:button-card"
+      color_type: label-card
+      color: rgb(88, 142, 189)
+      name: LG TV Control
+      show_name: true
+    # 2nd line
+    - type: horizontal-stack
+      cards:
+        # toggle power state
+        - type: "custom:button-card"
+          entity: media_player.denon_2
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: Power
+          icon: mdi:power
+          styles:
+            card:
+              - height: 65px
+          state:
+            - value: "off"
+              color: rgb(255,0,0)
+          tap_action:
+            action: call-service
+            service: script.lg_toggle_power
+          show_name: true
+         # toggle mute state
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: Mute
+          show_name: true
+          styles:
+            card:
+              - height: 65px
+          icon: mdi:volume-off
+          tap_action:
+            action: call-service
+            service: script.lg_toggle_mute
+          # volume up and down
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: Volume Down
+          styles:
+            card:
+              - height: 65px
+          show_name: true
+          icon: mdi:volume-minus
+          tap_action:
+            action: call-service
+            service: script.lg_volumedown_button
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: Volume Up
+          styles:
+            card:
+              - height: 65px
+          show_name: true
+          icon: mdi:volume-plus
+          tap_action:
+            action: call-service
+            service: script.lg_volumeup_button
+    - type: horizontal-stack
+      cards:
+        # select TV inputs
+        # mi box
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: TV
+          show_name: true
+          icon: mdi:television
+          styles:
+            card:
+              - height: 65px
+          tap_action:
+            action: call-service
+            service: script.lg_mibox
+          styles:
+            card:
+              - height: 65px
+        # netflix
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: Netflix
+          styles:
+            card:
+              - height: 65px
+          show_name: true
+          icon: mdi:netflix
+          tap_action:
+            action: call-service
+            service: script.lg_netflix     
+          styles:
+            card:
+              - height: 65px
+        # ps4
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: PS4
+          styles:
+            card:
+              - height: 65px
+          show_name: true
+          icon: mdi:playstation
+          tap_action:
+            action: call-service
+            service: script.lg_ps4
+          styles:
+            card:
+              - height: 65px
+        # youtube
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: YouTube
+          styles:
+            card:
+              - height: 65px
+          show_name: true
+          icon: mdi:youtube
+          tap_action:
+            action: call-service
+            service: script.lg_youtube  
+          styles:
+            card:
+              - height: 65px
+        # makotv
+        - type: "custom:button-card"
+          color_type: card
+          color: rgb(66, 134, 244)
+          name: MakoTV
+          show_name: true
+          tap_action:
+            action: call-service
+            service: script.lg_makotv
+          styles:
+            card:
+              - height: 65px
+      # 4th line
+    - type: horizontal-stack
+      cards:
+        # exit button card
+        - type: "custom:button-card"
+          color_type: label-card
+          name: EXIT 
+          show_name: true
+          tap_action:
+            action: call-service
+            service: script.lg_exit_button
+          color: rgb(66, 134, 244)
+          styles:
+            card:
+              - height: 70px
+        # arrow up
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          icon: mdi:arrow-up-bold-circle
+          size: 100%
+          tap_action:
+            action: call-service
+            service: script.lg_up_button
+          styles:
+            card:
+              - height: 70px
+              - width: 90px
+        # padding card
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(255,255,255) 
+          styles:
+            card:
+              - height: 70px
+      # 5th line
+    - type: horizontal-stack
+      cards:
+        # padding card
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(255,255,255) 
+          styles:
+            card:
+              - height: 70px
+        # arrow left
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          icon: mdi:arrow-left-bold-circle
+          size: 100%
+          tap_action:
+            action: call-service
+            service: script.lg_left_button
+          styles:
+            card:
+              - height: 70px
+              - width: 90px
+        # enter
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          name: ENTER
+          show_name: true
+          size: 100%
+          tap_action:
+            action: call-service
+            service: script.lg_enter_button
+          styles:
+            card:
+              - height: 70px
+              - width: 70px
+        # arrow right
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          icon: mdi:arrow-right-bold-circle
+          size: 100%
+          tap_action:
+            action: call-service
+            service: script.lg_right_button
+          styles:
+            card:
+              - height: 70px
+              - width: 90px
+        # padding card
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(255,255,255) 
+          styles:
+            card:
+              - height: 70px
+      # 6th line
+    - type: horizontal-stack
+      cards:
+        # return card
+        - type: "custom:button-card"
+          color_type: label-card
+          icon: mdi:keyboard-return
+          tap_action:
+            action: call-service
+            service: script.lg_back_button
+          color: rgb(66, 134, 244)
+          styles:
+            card:
+              - height: 70px
+        # arrow down
+        - type: "custom:button-card"
+          color_type: label-card
+          color: rgb(66, 134, 244)
+          icon: mdi:arrow-down-bold-circle
+          size: 100%
+          tap_action:
+            action: call-service
+            service: script.lg_down_button
+          styles:
+            card:
+              - height: 70px
+              - width: 90px
+        # return card
+        - type: "custom:button-card"
+          color_type: label-card
+          icon: mdi:home-circle
+          tap_action:
+            action: call-service
+            service: script.lg_home_button
+          color: rgb(66, 134, 244)
+          styles:
+            card:
+              - height: 70px
+      # 7th line
+    - type: horizontal-stack
+      cards:
+        # kodi control
+        # - type: "custom:button-card"
+        #   color_type: label-card
+        #   icon: mdi:keyboard-return
+        #   tap_action:
+        #     action: call-service
+        #     service: script.lg_exit_button
+        #   color: rgb(66, 134, 244)
+        #   styles:
+        #     card:
+        #       - height: 70px     
+    # last line
+    - type: "custom:button-card"
+      color_type: label-card
+      icon: mdi:home
+      color: rgb(88, 142, 189)
+      name: Home
+      size: 100%
+      styles:
+        card:
+          - height: 100px
+      tap_action:
+        action: navigate
+        navigation_path: /lovelace/floor_plan

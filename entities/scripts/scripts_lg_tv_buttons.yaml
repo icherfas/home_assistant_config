@@ -1,4 +1,43 @@
 ##############################################################
+#                   LG source select                         #
+##############################################################
+lg_netflix: 
+  sequence:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.living_room_tv_2
+        source: 'Netflix'
+
+lg_mibox: 
+  sequence:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.living_room_tv_2
+        source: 'Mi Box'
+
+
+lg_ps4: 
+  sequence:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.living_room_tv_2
+        source: 'PS4'
+
+lg_youtube: 
+  sequence:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.living_room_tv_2
+        source: 'YouTube'
+
+lg_makotv: 
+  sequence:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.living_room_tv_2
+        source: 'makoTV'
+
+##############################################################
 #                   LG buttons mapping                       #
 ##############################################################
 
@@ -10,21 +49,26 @@ lg_toggle_power:
 lg_power_off:
   sequence:
     - service: media_player.turn_off
-    entity_id: media_player.living_room_tv_2
+      entity_id: media_player.living_room_tv_2
 
-lg_home_button:
+lg_power_on:
+  sequence:
+    - service: media_player.turn_on
+      entity_id: media_player.living_room_tv_2
+
+lg_home_button: # show app list
   sequence:
     - service: webostv.button
       data:
         entity_id: media_player.living_room_tv_2
         button: "HOME"
 
-lg_mute_button:
+lg_toggle_mute:
   sequence:
-    - service: webostv.button
-      data:
+    - service: media_player.volume_mute
+      data_template:
         entity_id: media_player.living_room_tv_2
-        button: "MUTE"
+        is_volume_muted: "{{ not state_attr('media_player.living_room_tv_2', 'is_volume_muted') }}"
 
 lg_left_button:
   sequence:
@@ -81,3 +125,24 @@ lg_volumedown_button:
       data:
         entity_id: media_player.living_room_tv_2
         button: "VOLUMEDOWN"
+
+lg_pause_button:
+  sequence:
+    - service: webostv.button
+      data:
+        entity_id: media_player.living_room_tv_2
+        button: "PAUSE"
+
+lg_play_button:
+  sequence:
+    - service: webostv.button
+      data:
+        entity_id: media_player.living_room_tv_2
+        button: "PLAY"
+
+lg_back_button:
+  sequence:
+    - service: webostv.button
+      data:
+        entity_id: media_player.living_room_tv_2
+        button: "BACK"

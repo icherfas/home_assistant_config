@@ -21,6 +21,8 @@ select_tunein:
 denon_glgltz:
   alias: Play glgltz on Denon
   sequence:
+    - service: script.denon_power_on
+    - wait_template: " {{ is_state('media_player.denon_2', 'on') }}"
     - service: media_player.play_media
       data_template:
         entity_id: media_player.denon
@@ -30,6 +32,8 @@ denon_glgltz:
 denon_eco99:
   alias: Play eco99 on Denon
   sequence:
+    - service: script.denon_power_on
+    - wait_template: " {{ is_state('media_player.denon_2', 'on') }}"
     - service: media_player.play_media
       data_template:
         entity_id: media_player.denon
@@ -39,6 +43,8 @@ denon_eco99:
 denon_glz:
   alias: Play glz on Denon
   sequence:
+    - service: script.denon_power_on
+    - wait_template: " {{ is_state('media_player.denon_2', 'on') }}"
     - service: media_player.play_media
       data_template:
         entity_id: media_player.denon
@@ -52,6 +58,13 @@ denon_power_off:
   alias: "power off denon"
   sequence:
     - service: media_player.turn_off
+      data_template:
+        entity_id: media_player.denon_2
+
+denon_power_on:
+  alias: "power off denon"
+  sequence:
+    - service: media_player.turn_on
       data_template:
         entity_id: media_player.denon_2
 

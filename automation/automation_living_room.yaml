@@ -9,13 +9,13 @@
   - service: script.open_living_room_cover_100
   mode: single
 
-- id: 'close_living_room_cover'
-  alias: close living room cover for the night
-  description: 'close the living room cover to 50%'
-  trigger:
-  - at: '14:00'
-    platform: time
-  condition: []
-  action:
-  - service: script.close_living_room_cover_50
-  mode: single
+# - id: 'close_living_room_cover'
+#   alias: close living room cover for the night
+#   description: 'close the living room cover to 50%'
+#   trigger:
+#   - at: '14:00'
+#     platform: time
+#   condition: []
+#   action:
+#   - service: script.close_living_room_cover_50
+#   mode: single

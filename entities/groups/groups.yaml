@@ -24,7 +24,7 @@ all_covers:
     # parents room. big cover
     - cover.shelly_shsw_25_8caab50582af_2
     # parents room. small cover
-    - cover.shelly_shsw_25_98f4abf2c6d3_2
+    # - cover.shelly_shsw_25_98f4abf2c6d3_2
     # kids room
     - cover.shelly_shsw_25_98f4abf2ded9_2
     # balcony
@@ -40,5 +40,5 @@ all_lights:
     - switch.shelly_shsw_1_bcddc277c0e5_2      # big dining
     - switch.shelly_shsw_25_68c63af92c85_1_2   # small dining
     - switch.shelly_shsw_25_68c63af92c85_2_2   # hallway
-    - switch.shelly_shsw_25_e0980694fa76_2    # kitchen
-    - switch.shelly_shsw_25_e0980694fa76_1     # counter
+    - switch.shelly_shsw_25_98f4abf2c6d3_2   # kitchen
+    - switch.shelly_shsw_25_98f4abf2c6d3_1      # counter

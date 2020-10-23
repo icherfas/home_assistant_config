@@ -160,7 +160,7 @@ cards:
           type: state-label
       
   # Kitchen
-    - entity: switch.shelly_shsw_25_e0980694fa76_2
+    - entity: switch.shelly_shsw_25_98f4abf2c6d3_2
       style:
         left: 75%
         top: 59%
@@ -168,7 +168,7 @@ cards:
         action: toggle
       type: state-icon
   #  Counter
-    - entity: switch.shelly_shsw_25_e0980694fa76_1
+    - entity: switch.shelly_shsw_25_98f4abf2c6d3_1
       style:
         left: 75%
         top: 70%
@@ -219,27 +219,27 @@ cards:
             top: 8%
           type: state-label
   # Small Cover
-    - type: conditional
-      conditions:
-        - entity: cover.shelly_shsw_25_98f4abf2c6d3_2
-          state: open
-      elements:
-        - entity: cover.shelly_shsw_25_98f4abf2c6d3_2
-          attribute: current_position
-          style:
-            left: 28%
-            top: 5%
-          type: state-label
-    - type: conditional
-      conditions:
-        - entity: cover.shelly_shsw_25_98f4abf2c6d3_2
-          state_not: open
-      elements:
-        - entity: cover.shelly_shsw_25_98f4abf2c6d3_2
-          style:
-            left: 28%
-            top: 5%
-          type: state-label
+    # - type: conditional
+    #   conditions:
+    #     - entity: cover.shelly_shsw_25_98f4abf2c6d3_2
+    #       state: open
+    #   elements:
+    #     - entity: cover.shelly_shsw_25_98f4abf2c6d3_2
+    #       attribute: current_position
+    #       style:
+    #         left: 28%
+    #         top: 5%
+    #       type: state-label
+    # - type: conditional
+    #   conditions:
+    #     - entity: cover.shelly_shsw_25_98f4abf2c6d3_2
+    #       state_not: open
+    #   elements:
+    #     - entity: cover.shelly_shsw_25_98f4abf2c6d3_2
+    #       style:
+    #         left: 28%
+    #         top: 5%
+    #       type: state-label
         
 ##############################################################
 #                    Kids Room                               #

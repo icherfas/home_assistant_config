@@ -23,6 +23,7 @@ denon_glgltz:
   sequence:
     - service: script.denon_power_on
     - wait_template: " {{ is_state('media_player.denon_2', 'on') }}"
+    - service: script.heos_signin
     - service: media_player.play_media
       data_template:
         entity_id: media_player.denon
@@ -34,6 +35,7 @@ denon_eco99:
   sequence:
     - service: script.denon_power_on
     - wait_template: " {{ is_state('media_player.denon_2', 'on') }}"
+    - service: script.heos_signin
     - service: media_player.play_media
       data_template:
         entity_id: media_player.denon
@@ -45,6 +47,7 @@ denon_glz:
   sequence:
     - service: script.denon_power_on
     - wait_template: " {{ is_state('media_player.denon_2', 'on') }}"
+    - service: script.heos_signin
     - service: media_player.play_media
       data_template:
         entity_id: media_player.denon
@@ -158,3 +161,14 @@ denon_multi_channel_stereo_sound_mode:
       data_template:
         entity_id: media_player.denon_2
         sound_mode: "MCH STEREO"
+
+##############################################################
+#                    HEOS signin service                     #
+##############################################################
+heos_signin:
+  alias: "signin service for heos"
+  sequence:
+    - service: heos.sign_in
+      data:
+        username: !secret heos_username
+        password: !secret heos_password
